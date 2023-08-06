@@ -2,6 +2,49 @@ import pygame
 from pygame.locals import *
 from pygamelib import *
 
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLACK = (0, 0, 0)
+GRAY = (127, 127, 127)
+WHITE = (255, 255, 255)
+
+class App:
+    """Create a single-window app with multiple scenes"""
+    
+    def __init__(self):
+        """Initialize pygame and the application"""
+        pygame.init()
+        flags=RESIZABLE
+        App.screen=pygame.display.set_mode((640,240),flags)
+        App.running=True
+    
+    def run(self):
+        while App.running:
+            for event in pygame.event.get():
+                if event.type==QUIT:
+                    App.running=False
+        pygame.quit()
+
+class Text:
+    """Create a text object."""
+
+    def __init__(self, text, pos, **options):
+        self.text=text
+        self.pos=pos
+        self.fontname=None
+        self.fontsize=72
+        self.fontcolor=Color('black')
+        self.set_font()
+        self.render()
+    
+    def set_font(self):
+        self.font=pygame.font.Font(self.fontname,self.fontsize)
+
+    def render(self):
+        self.img=self.font.render(self.text,True,self.fontcolor)
+        self.rect=self.img.get_rect()
+        self.rect.topleft=self.pos
+
 class Ball:
     def __init__(self, pos, field, pad):
         self.pos=pos
@@ -106,4 +149,5 @@ class PongDemo(App):
         pygame.display.flip()
 
 if __name__ == '__main__':
+
     PongDemo().run()
