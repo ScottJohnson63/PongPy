@@ -70,3 +70,40 @@ class Field:
     def draw(self):
         pygame.draw.rect(App.screen,self.color,self.rect,self.stroke)
         pygame.draw.rect(App.screen,self.bg_color,self.rect,0)
+
+class PongDemo(App):
+    """Play the game of Pong."""
+    def __init__(self):
+        super().__init__()
+        Text('Pong',size=48)
+
+        self.field=Field((200,10,400,200))
+        self.pad=Pad((K_UP,K_DOWN), self.field)
+        self.ball=Ball(self.field.rect.center,self.field,self.pad)
+        self.bg_color=GRAY
+
+    def run(self):
+        while self.running:
+            for event in pygame.event.get():
+                if event.type==QUIT:
+                    self.running=False
+                    pygame.quit()
+                
+                self.pad.do(event)
+            
+            self.update()
+            self.draw()
+    
+    def update(self):
+        self.ball.update()
+        self.pad.update()
+    
+    def draw(self):
+        self.screen.fill(self.bg_color)
+        self.field.draw()
+        self.ball.draw()
+        self.pad.draw()
+        pygame.display.flip()
+
+if __name__ == '__main__':
+    PongDemo().run()
