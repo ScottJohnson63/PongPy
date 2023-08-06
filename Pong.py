@@ -1,3 +1,21 @@
+"""
+##############################################################################################################################################################################################################
+
+Copyright Disclaimer
+
+The code below is copyrighted by the original author below:
+(https://pygame.readthedocs.io/en/latest/1_intro/intro.html / © Copyright 2019, Raphael Holzer Revision b84b643a.)
+
+I do not own this content and I am not affiliated with the original author in any way. 
+
+I am simply using this content for educational purposes.
+
+If you are the copyright holder of this content and you believe that I am infringing on your copyright,
+please contact me and I will remove the content immediately.
+
+##############################################################################################################################################################################################################
+"""
+
 import pygame
 from pygame.locals import *
 from pygamelib import *
@@ -25,9 +43,11 @@ class App:
                     App.running=False
         pygame.quit()
 
+"""
+TO DO: REFACTOR THIS FOR SPECIFIC NEED BASED ON DOCS
+"""
 class Text:
     """Create a text object."""
-
     def __init__(self, text, pos, **options):
         self.text=text
         self.pos=pos
