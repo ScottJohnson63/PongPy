@@ -4,7 +4,8 @@
 Copyright Disclaimer
 
 The code below is copyrighted by the original author below:
-https://pygame.readthedocs.io/en/latest/1_intro/intro.html / © Copyright 2019, Raphael Holzer Revision b84b643a.
+https://pygame.readthedocs.io/en/latest/1_intro/intro.html
+© Copyright 2019, Raphael Holzer Revision b84b643a.
 
 I do not own this content and I am not affiliated with the original author in any way. 
 
