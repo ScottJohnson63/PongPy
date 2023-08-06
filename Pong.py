@@ -29,3 +29,35 @@ class Ball:
 
     def draw(self):
         pygame.draw.rect(App.screen, self.color, self.rect, 0)
+
+class Pad:
+    def __init__(self, keys, field):
+        self.keys=keys
+        self.field=field
+        self.speed=[0,0]
+        self.v=5
+        self.color=GREEN
+        self.rect=pygame.Rect(self.field.rect.topleft, (10,50))
+        self.rect.move_ip(10,0)
+    
+    def do(self, event):
+        if event.type==KEYDOWN:
+            if event.key==self.keys[0]:
+                self.speed[1]=-self.v
+            if event.ket==self.keys[1]:
+                self.speed[1]=self.v
+        elif event.type==KEYUP:
+            self.speed[1]=0
+
+    def update(self):
+        self.rect.move_ip(self.speed)
+
+        if self.rect.top < self.field.rect.top:
+            self.rect.top=self.field.rect.top
+        if self.rect.bottom > self.field.rect.bottom:
+            self.rect.bottom=self.field.rect.bottom
+    
+    def draw(self):
+        pygame.draw.rect(App.screen,self.color,self.rect,0)
+
+
