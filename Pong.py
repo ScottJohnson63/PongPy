@@ -60,4 +60,13 @@ class Pad:
     def draw(self):
         pygame.draw.rect(App.screen,self.color,self.rect,0)
 
-
+class Field:
+    def __init__(self, rect):
+        self.color=WHITE
+        self.bg_color=BLACK
+        self.stroke=10
+        self.rect=pygame.rect(rect)
+    
+    def draw(self):
+        pygame.draw.rect(App.screen,self.color,self.rect,self.stroke)
+        pygame.draw.rect(App.screen,self.bg_color,self.rect,0)
