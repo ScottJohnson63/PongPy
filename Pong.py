@@ -17,14 +17,15 @@ please contact me and I will remove the content immediately.
 """
 
 import pygame
+from colors import Colors
 from pygame.locals import *
 from pygamelib import *
 
-RED = (255,0,0)
-GREEN = (0,255,0)
-BLACK = (0, 0, 0)
-GRAY = (127, 127, 127)
-WHITE = (255, 255, 255)
+# RED = (255,0,0)
+# GREEN = (0,255,0)
+# BLACK = (0, 0, 0)
+# GRAY = (127, 127, 127)
+# WHITE = (255, 255, 255)
 
 class App:
     """Create a single-window app with multiple scenes"""
@@ -71,7 +72,7 @@ class Ball:
         self.field=field
         self.pad=pad
         self.speed=[1,1]
-        self.color=RED
+        self.color=Colors.RED
         self.rect=pygame.Rect(pos,(20,20))
     
     def update(self):
@@ -99,7 +100,7 @@ class Pad:
         self.field=field
         self.speed=[0,0]
         self.v=5
-        self.color=GREEN
+        self.color=Colors.GREEN
         self.rect=pygame.Rect(self.field.rect.topleft, (10,50))
         self.rect.move_ip(10,0)
     
@@ -125,8 +126,8 @@ class Pad:
 
 class Field:
     def __init__(self, rect):
-        self.color=WHITE
-        self.bg_color=BLACK
+        self.color=Colors.WHITE
+        self.bg_color=Colors.BLACK
         self.stroke=10
         self.rect=pygame.rect(rect)
     
